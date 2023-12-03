@@ -23,13 +23,15 @@ int main()
 // } Driver Code Ends
 
 
-int missingNumber(int arr[], int n)
+int missingNumber(int A[], int N)
 {
     // Your code goes here
-    int realsum= (n*(n+1))/2;
-    int sum=0;
-    for(int i=0; i<n-1; i++){
-        sum+=arr[i];
+
+    int temp = (N*(N+1))/2;
+        int sum =0;
+    for(int i =0;i<N-1;i++){
+        sum+= A[i];
     }
-    return realsum-sum;
+    
+    return temp-sum;
 }
