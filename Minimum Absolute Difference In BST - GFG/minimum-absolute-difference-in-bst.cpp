@@ -100,31 +100,32 @@ class Solution
 {
     public:
     
- void inorder(Node *root, vector<int>& ans) {
-    if (!root)
+    void inorder(Node *root, vector<int>&ans){
+        if(!root)
         return;
-
-    inorder(root->left, ans);
-    ans.push_back(root->data);
-    inorder(root->right, ans);
-}
-
-int absolute_diff(Node *root) {
-    // Your code here
-    vector<int> ans;
-    inorder(root, ans);
-
-    int res = INT_MAX;
-
-    for (int i = 1; i < ans.size(); i++) {
-        if (res > abs(ans[i] - ans[i - 1])) {
-            res = abs(ans[i] - ans[i - 1]);
-        }
+        
+        inorder(root->left,ans);
+        ans.push_back(root->data);
+        inorder(root->right,ans);
     }
-
-    return res;
-}
-
+    
+    int absolute_diff(Node *root)
+    {
+        //Your code here
+        vector<int>ans;
+        inorder(root,ans);
+        int res = INT_MAX;
+        sort(ans.begin(), ans.end());
+        
+        for(int i=1; i<ans.size(); i++){
+         if(res>abs(ans[i]-ans[i-1]))
+        {
+         res=abs(ans[i]-ans[i-1]); 
+        }
+        }
+        
+        return res;
+    }
 };
 
 
